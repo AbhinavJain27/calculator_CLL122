@@ -1,0 +1,116 @@
+/* Styles for Calculator component */
+
+.calculator-section {
+  margin: 1em;
+}
+
+.calculator-label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.calculator-input,
+.calculator-select,
+.calculator-dropdown {
+  width: 95%;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.calculator-dropdown {
+  position: relative;
+  user-select: none;
+}
+
+.calculator-dropdown-selected {
+  cursor: pointer;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  font-size: 1em;
+}
+
+.calculator-dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calculator-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.calculator-dropdown-option {
+  display: block;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.calculator-dropdown-option.selected {
+  background-color: #ecf0f1;
+}
+
+.calculator-button {
+  padding: 0.5em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.calculator-epsilon-box {
+  border: 1px solid #27ae60;
+  padding: 1em;
+  border-radius: 4px;
+  margin-top: 1em;
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.calculator-reaction {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #c0392b;
+  margin-bottom: 1em;
+}
+
+.calculator-reactant,
+.calculator-product {
+  margin-bottom: 0.5em;
+}
+
+.calculator-reactant span,
+.calculator-product span {
+  margin-right: 1em;
+}
+
+.calculator-input-small {
+  width: 100px;
+  margin-right: 1em;
+}
+
+.calculator-input-medium {
+  width: 120px;
+}
