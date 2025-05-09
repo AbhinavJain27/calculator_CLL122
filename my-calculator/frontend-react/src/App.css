@@ -39,6 +39,10 @@ section {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.theory-section {
+  background-color: #ffffff;
+}
+
 h1 {
   color: #2980b9;
   border-bottom: 2px solid #2980b9;

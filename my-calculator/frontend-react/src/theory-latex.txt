@@ -1,0 +1,218 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{margin=1in}
+\title{Chemical Reactor Simulation Report}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This report presents the design, simulation, and analysis of chemical reactors, focusing on plug flow reactors (PFR), continuously stirred tank reactors (CSTR), and packed bed reactors (PBR). The study includes single and multiple reactions, energy balances, and non-isothermal effects. It also explores advanced topics like Levenspiel plots and the impact of various operating conditions on conversion and selectivity.
+
+\section{Single Reactions}
+\subsection{Plug Flow Reactor (PFR)}
+In a PFR, the fluid flows through a pipe and reaction occurs along the flow path. The conversion increases with distance. The mole balance is given by:
+\[ \frac{dF_A}{dV} = r_A \quad \Rightarrow \quad \frac{dX}{dV} = \frac{-r_A}{F_{A0}} \]
+
+\subsection{CSTR}
+In a CSTR, the reactor is well mixed and the composition is uniform throughout. The mole balance is:
+\[ F_{A0} - F_A = -r_A V \quad \Rightarrow \quad V = \frac{F_{A0}X}{-r_A} \]
+
+\subsection{Batch Reactor}
+For a batch reactor, the mole balance is:
+\[ \frac{dN_A}{dt} = r_A V \]
+
+\subsection{Packed Bed Reactor (PBR)}
+\[ \frac{dX}{dW} = \frac{-r_A}{F_{A0}} \]
+
+\section{Rate Laws and Kinetics}
+\subsection{Power-law Rate Law}
+\[ -r_A = k C_A^n \]
+
+\subsection{Reversible Reaction}
+\[ -r_A = k_f C_A - k_r C_B \]
+
+\subsection{Langmuir–Hinshelwood Rate Law}
+\[ -r_A = \frac{k C_A}{1 + K_A C_A + K_B C_B} \]
+
+\subsection{First-order Rate Law Example}
+\[ -r_A = k C_A \]
+
+\section{Stoichiometry}
+Stoichiometry relates concentrations and flow rates of reacting species to conversion. It's the bridge between mole balances and rate laws in reactor design.
+
+For flow systems:
+\[
+C_A = \frac{F_A}{v}, \quad F_A = F_{A0}(1 - X)
+\]
+
+Where:
+\begin{itemize}
+    \item $C_A$ = concentration of species A (mol/L)
+    \item $F_A$ = molar flow rate of species A (mol/s)
+    \item $v$ = volumetric flow rate (L/s)
+    \item $F_{A0}$ = inlet molar flow rate of A (mol/s)
+    \item $X$ = conversion of A (dimensionless)
+\end{itemize}
+
+\textbf{Types of Flow Conditions:}
+
+\begin{itemize}
+  \item \textbf{Liquid phase (constant volumetric flow rate):}
+  \[
+  C_A = C_{A0}(1 - X)
+  \]
+  \begin{itemize}
+      \item $C_{A0}$ = inlet concentration of A (mol/L)
+  \end{itemize}
+
+  \item \textbf{Ideal Gas (variable volumetric flow rate):}
+  \[
+  C_A = C_{A0} \frac{(1 - X)}{1 + \varepsilon X} \frac{P}{P_0} \frac{T_0}{T}
+  \]
+  \begin{itemize}
+      \item $\varepsilon$ = fractional change in total moles per mole of A reacted
+      \item $P$, $P_0$ = system and reference pressures (atm)
+      \item $T$, $T_0$ = system and reference temperatures (K)
+  \end{itemize}
+
+  \item \textbf{Ideal Gas (constant pressure):}
+  \[
+  v = v_0 (1 + \varepsilon X)
+  \]
+  \begin{itemize}
+      \item $v_0$ = inlet volumetric flow rate
+  \end{itemize}
+
+  \item \textbf{Liquid or gas with constant volume:}
+  \[
+  V = V_0, \quad C_A = C_{A0}(1 - X)
+  \]
+  \begin{itemize}
+      \item $V = V_0$ implies no change in volume with conversion
+  \end{itemize}
+
+  \item \textbf{Variable volume batch reactor (gas phase):}
+  \[
+  C_A = \frac{N_A}{V} = C_{A0} \frac{(1 - X)}{1 + \varepsilon X} \frac{P}{P_0} \frac{T_0}{T}
+  \]
+  \begin{itemize}
+      \item $N_A$ = number of moles of A
+      \item $V$ = volume of the reactor at time $t$
+  \end{itemize}
+\end{itemize}
+
+\subsection{Batch Reactors}
+\[
+N_A = N_{A0}(1 - X)
+\]
+Where:
+\begin{itemize}
+    \item $N_A$ = number of moles of A at time $t$
+    \item $N_{A0}$ = initial number of moles of A
+    \item $X$ = conversion (fraction of A reacted)
+\end{itemize}
+
+\subsection{Temperature Dependence of Rate Constant}
+The rate constant varies with temperature according to the Arrhenius equation:
+
+\[
+k = k_A e^{-E_A / (RT)}
+\]
+
+Where:
+\begin{itemize}
+    \item $k$ = rate constant at temperature $T$
+    \item $k_A$ = pre-exponential factor
+    \item $E_A$ = activation energy (J/mol)
+    \item $R$ = universal gas constant (8.314 J/mol·K)
+    \item $T$ = absolute temperature (K)
+\end{itemize}
+
+If the rate constant $k_1$ is known at temperature $T_1$, the rate constant $k_2$ at a different temperature $T_2$ can be calculated using:
+
+\[
+\boxed{
+k_2 = k_1 \exp\left( \frac{E_A}{R} \left( \frac{1}{T_1} - \frac{1}{T_2} \right) \right)
+}
+\]
+
+This form avoids the need to determine the pre-exponential factor $k_A$ and allows comparison of rate constants at two temperatures directly.
+
+
+\section{Combine Example: First-Order Gas-Phase Reaction in a PFR}
+From mole balance:
+\[ \frac{dX}{dV} = \frac{-r_A}{F_{A0}} \]
+From rate law:
+\[ -r_A = k C_A \]
+From stoichiometry:
+\[ C_A = C_{A0} \frac{(1 - X)}{1 + \varepsilon X} \frac{P}{P_0} \frac{T_0}{T} \]
+Combine all:
+\[ \frac{dX}{dV} = \frac{k C_{A0}}{F_{A0}} \frac{(1 - X)}{1 + \varepsilon X} \frac{P}{P_0} \frac{T_0}{T} \quad \text{(A)} \]
+
+\section{Multiple Reactions}
+\subsection{Parallel Reactions}
+\[ A \rightarrow B \quad (k_1), \quad A \rightarrow C \quad (k_2) \]
+\[ S = \frac{r_B}{r_C} = \frac{k_1 C_A^{n_1}}{k_2 C_A^{n_2}} \]
+\\[1em]
+\textbf{Conversion vs. Reactor Length in Series-Parallel Systems:} \\
+In reactions where desired and undesired products are formed in parallel, the conversion changes along the reactor length or catalyst weight (W). The rate of formation for each product may differ. Typically, the desired product forms quickly at low conversion, while the undesired product dominates at higher conversion. Hence, there exists an optimum value of $W$ that maximizes the yield of the desired product before the undesired one accelerates.
+\\[1em]
+\textbf{Selectivity as a Function of Temperature and Conversion:} \\
+Selectivity ($S = \frac{r_B}{r_C}$) in a parallel reaction network is not constant—it depends strongly on both conversion ($X$) and temperature ($T$). As temperature changes, reaction rates (via Arrhenius equation) shift differently for each pathway. Hence, there is an optimal range of $T$ and $X$ to maximize selectivity toward the desired product. Operating outside that window can significantly reduce selectivity.
+
+\subsection{Series Reactions}
+\[ A \rightarrow B \rightarrow C \]
+Optimize residence time to maximize intermediate B.
+
+\section{Energy Balances (Non-Isothermal Reactors)}
+
+\subsection{Theory}
+In non-isothermal reactors, the temperature changes along the reactor due to the heat released or absorbed by the reaction, and external heat exchange. Exothermic reactions tend to increase the temperature, possibly causing runaway reactions, while endothermic reactions lower the temperature unless heat is supplied. Proper thermal management is crucial for safety and efficiency.
+
+\subsection{General Energy Balance with Conversion}
+The generalized steady-state energy balance for non-isothermal reactors, using constant or mean heat capacities, is:
+
+\[
+\boxed{
+\dot{Q} - W_s - F_{A0} \sum_{i=1}^{n} \Theta_i C_{P,i}(T - T_{0}) - \left[\Delta H^\circ_{\text{Rx}}(T_R) + \Delta C_P(T - T_R)\right] F_{A0} X = 0
+}
+\]
+
+Where:
+\begin{itemize}
+    \item $\dot{Q}$: rate of heat added to the system
+    \item $W_s$: shaft work or external mechanical work
+    \item $F_{A0}$: molar flow rate of the limiting reactant A
+    \item $\Theta_i$: stoichiometric coefficient ratio $\frac{F_i}{F_{A0}}$
+    \item $C_{P,i}$: constant or average heat capacity of species $i$
+    \item $T_0$: inlet temperature, $T$: reactor temperature
+    \item $\Delta H^\circ_{\text{Rx}}(T_R)$: standard heat of reaction at reference temperature $T_R$
+    \item $\Delta C_P = \sum \nu_i C_{P,i}$: heat capacity change of the reaction
+    \item $X$: conversion of reactant A
+\end{itemize}
+
+\section{Design Tools}
+\subsection{Levenspiel Plot}
+The Levenspiel plot is a graphical tool for reactor sizing. It plots $\frac{F_{A0}}{-r_A}$ versus conversion $X$. The area under the curve represents the reactor volume required to achieve a certain conversion.
+
+\textbf{Interpretation for Different Reactors:}
+\begin{itemize}
+  \item For a CSTR, draw a rectangle from $X=0$ to $X$ at height $\frac{F_{A0}}{-r_A}$.
+  \item For a PFR, integrate the area under the curve directly.
+  \item For multiple CSTRs or PFRs in series, the plot helps visualize how much volume is added with each stage.
+\end{itemize}
+
+\section{Additional Notes}
+\begin{itemize}
+  \item Space Time: $\tau = \frac{V}{v_0}$
+  \item Damk\"ohler Number: $Da = \frac{r_A V}{F_{A0}}$
+\end{itemize}
+
+\end{document}
