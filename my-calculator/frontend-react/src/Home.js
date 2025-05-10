@@ -37,7 +37,7 @@ function Home() {
             due to perfect mixing. The residence time distribution is exponential, and the conversion depends on the 
             space time and reaction kinetics.
           </p>
-          <img src={cstrImage} alt="CSTR" style={{ maxWidth: '160px', height: 'auto' }} />
+          <img src={cstrImage} alt="CSTR" style={{ maxWidth: '200px', height: 'auto' }} />
         </div>
       </div>
 
@@ -50,7 +50,7 @@ function Home() {
             time distribution is important, as it provides a narrow distribution similar to batch reactors but 
             operates continuously.
           </p>
-          <img src={pfrImage} alt="PFR" style={{ maxWidth: '120px', height: 'auto' }} />
+          <img src={pfrImage} alt="PFR" style={{ maxWidth: '200px', height: 'auto' }} />
         </div>
       </div>
 
@@ -63,7 +63,7 @@ function Home() {
             is an important design consideration. PBRs are widely used in heterogeneous catalytic reactions like 
             petroleum refining.
           </p>
-          <img src={pbrImage} alt="PBR" style={{ maxWidth: '120px', height: 'auto' }} />
+          <img src={pbrImage} alt="PBR" style={{ maxWidth: '200px', height: 'auto' }} />
         </div>
       </div>
 
@@ -76,7 +76,7 @@ function Home() {
             reactors are versatile and commonly used in pharmaceutical and specialty chemical production where 
             flexibility is required.
           </p>
-          <img src={batchImage} alt="Batch Reactor" style={{ maxWidth: '160px', height: 'auto' }} />
+          <img src={batchImage} alt="Batch Reactor" style={{ maxWidth: '200px', height: 'auto' }} />
         </div>
       </div>
     </section>
