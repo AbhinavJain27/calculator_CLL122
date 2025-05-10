@@ -7,7 +7,7 @@ import Calculator from './Calculator';
 import About from './About';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('calculator');
 
   const handleNavigation = (section) => {
     setActiveSection(section);
@@ -16,20 +16,6 @@ function App() {
   return (
     <div>
       <nav className="nav-bar">
-        <a
-          href="#home"
-          onClick={() => handleNavigation('home')}
-          className={activeSection === 'home' ? 'active' : ''}
-        >
-          Home
-        </a>
-        <a
-          href="#theory"
-          onClick={() => handleNavigation('theory')}
-          className={activeSection === 'theory' ? 'active' : ''}
-        >
-          Theory
-        </a>
         <a
           href="#calculator"
           onClick={() => handleNavigation('calculator')}
@@ -47,8 +33,6 @@ function App() {
       </nav>
 
       <main>
-        {activeSection === 'home' && <Home />}
-        {activeSection === 'theory' && <Theory />}
         {activeSection === 'calculator' && <Calculator />}
         {activeSection === 'about' && <About />}
       </main>
